@@ -1,27 +1,23 @@
 # include <iostream>
+# include <vector>
 using namespace std;
+void digitint(int n,vector<int>&v){
+  if(n==0){
+    return ;
+  }
+ int digit= n%10;
+n=n/10;
+digitint(n,v);
+v.push_back(digit);
+// cout<<digit<<endl;
+}
 
-int check(string &name,int i,int j){
-    
-    // base case
-    if(i>j){ 
-        return true; 
-    }
-    // recursive call
-    if(name[i]=name[j]){
-       return check(name,i+1,j-1);
-    }
-    
-} 
 int main(){
-   string name="abba";
-   int i,j;
-  bool ans= check(name,0,name.length()-1);;
-  if(ans){
-    cout<<"string is a pallindrome string";
-  }
-  else{
-    cout<<"not a pallindrome string";;
-  }
+   vector<int>v;
+ digitint(452,v);
+
+ for(int i=0;i<v.size();i++){
+  cout<<v[i]<<endl; 
+ }
     return 0;
 }
